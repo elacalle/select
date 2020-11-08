@@ -1,0 +1,28 @@
+div(
+  class="select"
+  :class="{'select--disabled' : disabled}"
+)
+  div(
+    v-if="isOpen"
+    :class="selectClass"
+  )
+    template(
+      v-for="option in selectOptions"
+    )
+      div(
+        @click="select(option)"
+      )
+        slot(
+          name="select-option"
+          v-bind:option="option"
+        )
+          div(
+            class="select-options__select"
+          ) 
+            | {{option.name}}
+  div(v-else)
+    div(
+      @click="toggle"
+      class="select__option-selected"
+    )
+      | {{ selectedOption.name || placeholder }}

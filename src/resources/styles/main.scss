@@ -1,0 +1,50 @@
+@mixin elipsis-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.select {
+  border: 1px solid black;
+  position: relative;
+
+  &--disabled {
+    background-color: gainsboro;
+    color: gray;
+  }
+
+  &-options {
+    position: absolute;
+    border: 1px solid black;
+    background: white;
+    width: 100%;
+    top: 0px;
+    max-height: 10rem;
+
+    &__select {
+      position: static;
+    }
+
+    div {
+      max-width: 98%;
+      @include elipsis-text();
+    }
+  }
+
+  &__option-selected {
+    min-width: 90%;
+    @include elipsis-text();
+
+    &::after {
+      content: '⬇';
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-right: .5rem;
+    }
+  }
+}
+
+.error {
+  border: 1px solid red;
+}
