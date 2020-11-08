@@ -61,8 +61,8 @@ const Dropdown = {
     },
   },
   mounted() {
-    // this.selectOptions = this.options;
-    // this.selectOptions.unshift({name: this.placeholder, value:null})
+    this.selectOptions = this.options;
+    this.selectOptions.unshift({name: this.placeholder, value: null})
   },
   template
 };
